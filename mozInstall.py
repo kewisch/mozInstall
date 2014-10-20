@@ -222,7 +222,7 @@ class MozInstaller:
     # undmg code from Jesse
     mountpoint = os.path.join(self.dest, "MOUNTEDDMG")
     devnull = open(os.devnull, "w")
-    subprocess.check_call(["hdiutil", "attach", "-quiet", "-mountpoint", mountpoint, self.src], stdout=devnull)
+    subprocess.check_call(["hdiutil", "attach", "-quiet", "-nobrowse", "-noautoopen", "-mountpoint", mountpoint, self.src], stdout=devnull)
 
     app = 'Minefield.app'
     for fname in os.listdir(mountpoint):
